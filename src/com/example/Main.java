@@ -52,6 +52,9 @@ public class Main {
             int minCol = room.getMinCol();
             for(int i = minRow; i <= maxRow; i++){
                 for(int j = minCol; j <= minCol; j++){
+
+                    if(floor[i][j] == '#') continue;
+
                     floor[i][j] = (char) currentColor;
                 }
             }
@@ -79,7 +82,7 @@ public class Main {
                 if(floor[i][j+1].equals('#') && floor[i+1][j].equals('#') && floor[i+1][j+1].equals('#')) {
                     currentRoom.setMaxRow(i);
                     currentRoom.setMaxCol(j);
-                    break;
+                    return currentRoom;
                 }
             }
         }
